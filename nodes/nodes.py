@@ -1,0 +1,30 @@
+class Node():
+    def __init__(self, value):
+        self.value = value
+        self.left = None
+        self.right = None
+    
+def preorder(root):
+    if root:
+        # print root
+        if root.value != None:
+            print(str(root.value) + "->", end="")
+        # traverse left
+        preorder(root.left)
+        # traverse right
+        preorder(root.right)
+
+# root
+root = Node("a")
+# 1st layer
+root.left = Node("b")
+root.right = Node("c")
+# 2nd layer
+root.left.left = Node("d")
+root.left.right = Node("e")
+root.right.left = Node("f")
+# 3rd layer
+root.left.left.right = Node("g")
+
+print("Pre-Order:")
+preorder(root)
