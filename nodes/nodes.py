@@ -5,14 +5,35 @@ class Node():
         self.right = None
     
 def preorder(root):
+    # v - l - r
     if root:
         # print root
-        if root.value != None:
-            print(str(root.value) + "->", end="")
+        print(str(root.value) + "->", end="")
         # traverse left
         preorder(root.left)
         # traverse right
         preorder(root.right)
+
+
+def postorder(root):
+    # l - r - v
+    if root:
+        # traverse left
+        postorder(root.left)
+        # traverse right
+        postorder(root.right)
+        # print root
+        print(str(root.value) + "->", end="")
+
+def inorder(root):
+    # l - v - r
+    if root:
+        # traverse left
+        inorder(root.left)
+        # print root
+        print(str(root.value) + "->", end="")
+        # traverse right
+        inorder(root.right)
 
 # root
 root = Node("a")
@@ -26,5 +47,17 @@ root.right.left = Node("f")
 # 3rd layer
 root.left.left.right = Node("g")
 
+# preorder
 print("Pre-Order:")
 preorder(root)
+print()
+
+# postorder
+print("Post-Order:")
+postorder(root)
+print()
+
+# inorder
+print("In-Order:")
+inorder(root)
+print()
