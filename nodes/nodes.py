@@ -35,6 +35,7 @@ def inorder(root):
         # traverse left
         inorder(root.left)
 
+
 def printTree(root, level=0):
     if root:
         printTree(root.left, level + 1)
@@ -53,7 +54,7 @@ root.right.left = Node("f")
 # 3rd layer
 root.left.left.right = Node("g")
 
-print("Printing tree...")
+print("Printing tree...\n\n")
 printTree(root)
 print("\n\n")
 
@@ -70,4 +71,4 @@ print("\n\n")
 # inorder
 print("In-Order:")
 inorder(root)
-print()
+print("\n\n")
