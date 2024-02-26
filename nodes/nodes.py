@@ -26,14 +26,20 @@ def postorder(root):
         print(str(root.value) + "->", end="")
 
 def inorder(root):
-    # l - v - r
+    # r - v - l
     if root:
-        # traverse left
-        inorder(root.left)
-        # print root
-        print(str(root.value) + "->", end="")
         # traverse right
         inorder(root.right)
+        # print root
+        print(str(root.value) + "->", end="")
+        # traverse left
+        inorder(root.left)
+
+def printTree(root, level=0):
+    if root:
+        printTree(root.left, level + 1)
+        print(" " * 4 * level + "->" + str(root.value))
+        printTree(root.right, level + 1)
 
 # root
 root = Node("a")
@@ -47,15 +53,19 @@ root.right.left = Node("f")
 # 3rd layer
 root.left.left.right = Node("g")
 
+print("Printing tree...")
+printTree(root)
+print("\n\n")
+
 # preorder
 print("Pre-Order:")
 preorder(root)
-print()
+print("\n\n")
 
 # postorder
 print("Post-Order:")
 postorder(root)
-print()
+print("\n\n")
 
 # inorder
 print("In-Order:")
